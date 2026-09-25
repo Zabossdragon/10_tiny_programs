@@ -1,0 +1,26 @@
+import math
+
+def cup_size_input():
+  user_input = float(input("bust size? (inches) : "))
+  print("great now that we know bust size is", user_input, "inches. Do you want the cupsize or the weight?")
+  choice = input("cup size or weight?:")
+  
+  user_input_changed = round(2 * user_input)/2
+  
+  if choice == "weight":
+    z = 0.15 * (user_input_changed*2)**1.4 
+    print(round(z,2), "kg(s)" )
+  elif choice =="cup size":
+    val = math.ceil(user_input_changed)
+
+    if user_input_changed == 1 :
+      print("A")
+    elif user_input_changed == 0.5 :
+      print("AA")
+    elif user_input_changed % 1 ==0 :
+      print(str(2*chr(val+64)))
+    else :
+      print(chr(val+64))
+  else :
+    print("error")
+cup_size_input()
